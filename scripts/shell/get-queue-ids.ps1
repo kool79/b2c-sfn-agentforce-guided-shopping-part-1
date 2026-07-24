@@ -1,3 +1,12 @@
 #!/usr/bin/env pwsh
 
-sf data query --query "SELECT Id, Name FROM Group WHERE Type = 'Queue' AND Name = 'Backup Messaging Queue'" --json
+$ProjectRoot = Resolve-Path "$PSScriptRoot\..\.."
+Push-Location $ProjectRoot
+try
+{
+    sf data query --file 'scripts/soql/get-queue-ids.soql' --json
+}
+finally # restore for interactive session
+{
+    Pop-Location
+}
