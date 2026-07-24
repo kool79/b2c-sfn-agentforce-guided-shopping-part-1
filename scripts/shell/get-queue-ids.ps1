@@ -1,1 +1,3 @@
-sf data query --query "SELECT Id, Name FROM Group WHERE Type = 'Queue' AND Name = 'Backup Messaging Queue'" --target-org {ORG_username} --json
+#!/usr/bin/env pwsh
+
+sf data query --query "SELECT Id, Name FROM Group WHERE Type = 'Queue' AND Name = 'Backup Messaging Queue'" --json
